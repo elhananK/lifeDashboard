@@ -1,0 +1,60 @@
+body { 
+    width:170px;
+    color:#000; font:12px/20px Helvetica,arial,sans-serif;
+    padding: 3px;
+    margin: 0;
+} 
+
+ul { padding:0;margin:0; }
+ul li{ list-style:none; height:20px;margin-bottom: 7px;}
+ul li:last-child{margin-bottom: 4px;}
+
+ul li a {
+    color:#303030; text-decoration:none;
+    display: block;
+    border-radius: 4px;
+    padding: 2px;
+	-webkit-transition:all ease-in .25s;
+    
+}
+ul li a:hover {
+    background-color: #eceff5;
+    color: #000;
+    cursor:pointer;
+}
+hr{
+    border: 1px dashed #c1c1c1;
+}
+a span, #createtarget span { float:left; width:20px; height:1px;  }
+
+
+img.create.image {
+    float: left;
+    margin-left: 4px;
+    margin-top: 3px;
+}
+
+.aws-account {
+    
+    text-align: center;
+    padding: 0 10px;
+    background: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 10px;
+}
+.aws-login {
+    line-height: 30px;
+    display: none;
+}
+#aws-login, #log-out {
+    outline: none;
+}
+
+
+.aws-login a {
+    font-size: 14px;
+    color: rgb(157, 19, 0);
+    text-decoration: none;
+}
+
+

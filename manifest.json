@@ -1,0 +1,76 @@
+{
+  "name": "LifeDashboard",
+  "description": "LifeDashboard POC",
+  "version": "2.1.9",
+   "browser_action": {
+      "default_icon": "images/target.png",
+      "default_popup": "popup.html",
+      "default_title": "LifeDashboard"
+   },
+  "content_scripts": [
+    {
+
+      "matches": [
+        "https://mail.google.com/*",
+        "https://inbox.google.com/*",
+        "https://apis.google.com/",
+        "<all_urls>"
+      ],
+      "js": [
+        "inboxsdk.js",
+        "content.js",
+        "popup.js",
+        "jquery-1.8.0.min.js",
+        "prefixfree.js",
+        "loader.js",
+        "Chart.js",
+        "d3.v2.min.js",
+        "d3.v3.min.js",
+        "d3-legend.min.js",
+        "jsgrid.core.js",
+        "jsgrid.field.js",
+        "jsgrid.load-indicator.js",
+        "jsgrid.load-strategies.js",
+        "jsgrid.sort-strategies.js",
+        "jquery.popupoverlay.js",
+        "multiple-emails.js",
+        "bootstrap.min.js",
+        "semantic.min.js",
+        
+        "angular.min.js"
+      ],
+      "css": [
+        "font-awesome.css",
+        "style.css",
+        "jsgrid.css",
+        "theme.css",
+
+        "multiple-emails.css"
+        
+        
+      ],
+      "run_at": "document_end"
+      
+    }
+  ],
+  "permissions": [
+    "identity",
+    "tabs",
+    "identity.email",
+    "notifications",
+    "activeTab",
+    "storage",
+    "alarms",
+    "https://www.googleapis.com/*",
+    "<all_urls>",
+    "https://*.googleusercontent.com/*"
+  ],
+"background": {
+    "scripts": ["background.js"]
+  },
+"manifest_version": 2,
+"web_accessible_resources":[
+     "fonts/*",
+     "images/*"
+  ]
+}

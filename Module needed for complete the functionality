@@ -1,0 +1,121 @@
+Module needed for complete the functionality 
+
+IMP for prority functionality
+
+function getpriority_id(priority_id, status, selectedPriority, subject, sender, emailAddress) {
+
+    request = createRequest();
+    if (request == null)
+        alert("Unable to create request");
+    else {
+
+        var selectedpriority = selectedPriority;
+        var status = status;
+
+        var url = "https://production-dot-curious-athlete-131013.appspot.com/add?priority_id=" + selectedpriority + "&status=" + status + "&query_status=002";
+
+        request.onreadystatechange = function() {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    var responsedata = request.responseText;
+                    responsedata = responsedata.trim();
+                    if (responsedata == "Okay") {
+                        alert("Some error occur");
+
+                    } else {
+
+                        //alert("Priority Added");
+                        var div = document.getElementById("priority_message_id");
+                        div.style.display = "block";
+                        setTimeout(function() {
+                            $('#priority_message_id').fadeOut('fast');
+                        }, 3000);
+                        document.getElementById(target_shut_count).innerHTML = '';
+                        searchRequestOnServer(subject, sender, emailAddress);
+
+                    }
+
+                }
+            }
+        };
+
+
+        request.open("GET", url, true);
+        request.send(null);
+    }
+
+}
+
+____________________
+
+IMP for class functionality
+
+  document.getElementById("threat").onclick = function() {
+
+                        document.getElementById(count).style.background = "#b71c1c";
+                        var classify_name = "Threats";
+                        var div = document.getElementById("classify");
+                        div.style.display = "block";
+                        setTimeout(function() {
+                            $('#classify').fadeOut('fast');
+                        }, 3000);
+                        applyClassification(clone_subject, clone_sender, clone_email, user_email, classify_name);
+                        var menu_open_id = "#menu_data_open";
+                        $(menu_open_id).removeClass("menu-Show-open");
+
+                    }
+
+____________________
+
+IMP for Engaged functionality
+
+                    function markItEngaged(subject, sender, emailAddress) {
+    var y = document.getElementsByClassName("inboxsdk__button_icon target_icon_1");
+    y[0].innerHTML = '<div class="onoffswitch"><input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked><label class="onoffswitch-label" for="myonoffswitch"><span class="onoffswitch-inner"></span><span class="onoffswitch-switch"></span></label></div>';
+    switch_flag = 1;
+
+    request = createRequest();
+    if (request == null)
+        alert("Unable to create request");
+    else {
+        var user_subject = escape(subject);
+        var user_sender = escape(sender);
+        var user_emailAddress = escape(emailAddress);
+        var currentdate = new Date();
+        var datetime = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate() + " " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+        var url = "https://production-dot-curious-athlete-131013.appspot.com/add?sender=" + user_sender + "&subject=" + user_subject + "&email=" + user_emailAddress + "&user_email=" + user_email + "&query_status=4&create_date=" + datetime;
+        request.onreadystatechange = function() {
+            if (request.readyState == 4) {
+                if (request.status == 200) {
+                    var x = document.getElementsByClassName("inboxsdk__button_icon target_icon");
+                    x[0].innerHTML = '<p><img class="inboxsdk__button_iconImg" src="http://lifedashboard.github.io/lifedashboard.com/target.png">&nbsp;LD Target</p>';
+                    var responsedata = request.responseText;
+                    responsedata = responsedata.trim();
+                    if (responsedata == "Target Engaged") {
+
+                    } else {
+
+
+
+                    }
+
+                }
+            }
+        };
+
+
+        request.open("GET", url, true);
+        request.send(null);
+    }
+}
+
+___________________
+
+IMP for active functionality
+    $side.on('click', 'a.radar_meter_logout', function() {
+
+                var final_seconds = seconds_time.toString();
+                duration_score = final_seconds.toHHMMSS();
+                document.getElementById("text_wrapper").innerHTML = '';
+                markItActive(subject, tempe_sender, tempe_sender_email, duration_score);
+            });
